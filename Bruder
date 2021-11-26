@@ -1,0 +1,112 @@
+import random
+
+RUN = True  #allgemeine Variable zum laufen lassen des Programms
+PL1 = True  #Welcher Spieler ist an der Reihe
+PL2 = False
+PLAYER1 = 0  #LE bewegt
+PLAYER2 = 0
+P1 = 0  #Pasche gewürfelt
+P2 = 0
+M1 = 0  #Züge gemacht
+M2 = 0
+
+
+def wuerfeln():
+    global x, y, Pasch
+    Pasch = False
+    x = random.randint(1, 6)
+    y = random.randint(1, 6)
+    if x == y:
+        Pasch = True
+    return x, y, Pasch
+
+
+def move1():
+    global z, PLAYER1
+    PLAYER1 += z
+    return PLAYER1
+
+
+def move2():
+    global z, PLAYER2
+    PLAYER2 += z
+    return PLAYER2
+
+
+while RUN:
+    try:
+        Name1 = str(input("Name Spieler1:"))
+    except:
+        print("Maximal 16 Zeichen")
+    else:
+        if len(Name1) < 17:
+            break
+        else:
+            print("Maximal 16 Zeichen")
+
+while RUN:
+    try:
+        Name2 = str(input("Name Spieler2:"))
+    except:
+        print("Maximal 16 Zeichen")
+    else:
+        if Name1 == Name2:
+            print("Namen dürfen nicht gleich sein!")
+        elif len(Name2) < 17:
+            break
+        else:
+            print("Maximal 16 Zeichen")
+
+while RUN:
+    if PL1:
+        wuerfeln()
+        if Pasch:
+            P1 += 1
+        if P1 > 0:
+            z = x + y
+            move1()
+            if Pasch:
+                PL1 = True
+                PL2 = False
+            else:
+                PL2 = True
+                PL1 = False
+                M1 += 1
+
+    if PLAYER1 > 499:
+        PL1 = True
+        PL2 = False
+        break
+
+    if PL2:
+        wuerfeln()
+        if Pasch:
+            P2 += 1
+        if P2 > 0:
+            z = x + y
+            move2()
+            if Pasch:
+                PL1 = False
+                PL2 = True
+            else:
+                PL2 = False
+                PL1 = True
+                M2 += 1
+
+    if PLAYER2 > 499:
+        PL2 = True
+        PL1 = False
+        break
+
+a = 500 - PLAYER1
+b = 500 - PLAYER2
+
+if PL1:
+    print("Player", Name1, "Won!")
+    print("Player", Name1, "Pasche:", P1, "Züge:", M1)
+    print("Player", Name2, "Pasche:", P2, "Züge:", M2, "Fehlte:", b)
+
+if PL2:
+    print("Player", Name2, "Won!")
+    print("Player", Name2, "Pasche:", P2, "Züge:", M2)
+    print("Player", Name1, "Pasche:", P1, "Züge:", M1, "Fehlte:", a)
