@@ -1,0 +1,129 @@
+String = "Ich bin ein String"
+
+Interger = 123
+
+Liste = ["Bruder", "Schwester", "Vater"]
+
+print(Liste)
+
+print(Liste[2]) #Gibt drittes Listenelement aus
+
+RUN = True
+
+while RUN:
+    try:
+        a = int(input("Wie ist die Seitenlänge des Würfels?"))
+    except:
+        print("Seitenlängen dürfen nur Zahlen sein!")
+    else:
+        if a < 11:
+            break
+        else:
+            print("Maximal 10 LE lang")
+
+b = a ** 3
+
+print(b, "VE")
+
+#wenn man das x mal machen muss
+
+for i in range(6): #macht es genau 6 mal
+    while RUN:
+        try:
+            a = int(input("Wie ist die Seitenlänge des Würfels?"))
+        except:
+            print("Seitenlängen dürfen nur Zahlen sein!")
+        else:
+            if a < 100001:
+                break
+            else:
+                print("Maximal 100000 LE lang")
+
+    b = a ** 3
+
+    print(b, "VE")
+
+#Oberflächeninhalt eines Quaders
+
+while RUN:
+    try:
+        a = int(input("Wie ist die erste Seite des Quaders?"))
+    except:
+        print("Seitenlängen dürfen nur Zahlen sein!")
+    else:
+        if a < 1001:
+            break
+        else:
+            print("Maximal 1000 LE lang")
+
+while RUN:
+    try:
+        b = int(input("Wie ist die zweite Seite des Quaders?"))
+    except:
+        print("Seitenlängen dürfen nur Zahlen sein!")
+    else:
+        if b < 1001:
+            break
+        elif b > 1010:
+            print("Bruder")
+        else:
+            print("Maximal 1000 LE lang")
+
+while RUN:
+    try:
+        c = int(input("Wie ist die letzte Seite des Quaders?"))
+    except:
+        print("Seitenlängen dürfen nur Zahlen sein!")
+    else:
+        if c < 1001:
+            break
+        else:
+            print("Maximal 1000 LE lang")
+
+z = 2*a*c+2*b*c+2*a*b
+
+print(z, "FE")
+
+import random
+Wuerfeln = []
+
+x = random.randint(1,6) #einmal würfeln
+
+for i in range(2000): #mehrmals würfeln
+    Zahl = random.randint(1,6)
+
+    Wuerfeln += [Zahl] #hängt Element an Liste
+    #Wuerfeln.append(Zahl) für einzelnes
+    #Wuerfeln.extent(Zahl, x) für mehreres
+
+print(x, Wuerfeln)
+
+# für Dreieck
+
+while RUN:
+    try:
+        e = int(input("Wie ist die Grundseite des Dreiecks?"))
+    except:
+        print("Grundseite darf nur eine Zahl sein!")
+    else:
+        if e < 1001:
+            break
+        elif e > 1010:
+            print("Bruder")
+        else:
+            print("Maximal 1000 LE lang")
+
+while RUN:
+    try:
+        h = int(input("Wie ist die Höhe des Dreiecks?"))
+    except:
+        print("Seitenlängen dürfen nur Zahlen sein!")
+    else:
+        if h < 1001:
+            break
+        else:
+            print("Maximal 1000 LE lang")
+
+g = (e*h)/2
+
+print(g, "FE")
